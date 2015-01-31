@@ -1,33 +1,24 @@
+#include "stack.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "stack.h"
 
-Stack createStack(void){
-	Stack s1 ;
-	// s1.count = malloc(sizeof(int));
-	// s1.top  = malloc(sizeof(Node));
-	s1.count = 0;
-	s1.top = NULL;
-	return s1;
+Stack createStack(){
+	LinkedList *list = calloc(sizeof(LinkedList),1);
+	Stack s = {list,&list->tail};
+	return s;
+}
+
+int push(Stack s,void* data){
+	Node *n1;
+	int result;
+	if(!data) return -1;
+	n1 = create_node(data);
+	result=add_to_list(s.list, n1);
+	return s.list->count;
+}
+
+void * pop(Stack s){
+	Node *result;
+	result =  deleteTail(s.list, s.list->count-1);
+	return (result==NULL)?NULL:result->data;
 };
-
-int push(Stack *s,void* data){
-	node_ptr newNode = malloc(sizeof(Node));
-	newNode->data = data;	
-	newNode->link= s->top;
-	(s->top) = newNode;
-	s->count++;
-	return s->count;
-	// (*(int*)s.count)++;
-	// return *(int*)s.count;
-};
-
-// int pop(Stack *s){
-// 	node_ptr newNode = malloc(sizeof(Node));
-// 	(newNode)->link= s->top;
-// 	s->top = newNode;
-// 	s->count++;
-// 	return s->count;
-// };
-
-
