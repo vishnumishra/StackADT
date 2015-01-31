@@ -6,8 +6,8 @@ typedef struct{
 } Test;
 
 //code to be updated starts
-TestFn setup,teardown,fixtureSetup,fixtureTearDown,test_createStack_create_a_stack;
-Test test[] = {"test_createStack_create_a_stack",test_createStack_create_a_stack};
+TestFn setup,teardown,fixtureSetup,fixtureTearDown,test_createStack_create_a_stack,test_push_push_the_data_onto_stack,test_push_push_the_data_onto_stack_02,test_push_push_the_data_onto_stack_03;
+Test test[] = {"test_createStack_create_a_stack",test_createStack_create_a_stack,"test_push_push_the_data_onto_stack",test_push_push_the_data_onto_stack,"test_push_push_the_data_onto_stack_02",test_push_push_the_data_onto_stack_02,"test_push_push_the_data_onto_stack_03",test_push_push_the_data_onto_stack_03};
 char testFileName[] = {"stackTest.c"};
 void _setup(){/*CALL_SETUP*/}
 void _teardown(){/*CALL_TEARDOWN*/}
